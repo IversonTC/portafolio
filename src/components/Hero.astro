@@ -1,45 +1,149 @@
+ ---
+const stack = [
+  {
+    name: "Angular",
+    icon: "fa-angular",
+    classes: "bg-red-500/10 border-red-500/30 text-rose-400 hover:shadow-[0_4px_20px_rgba(221,0,49,0.15)]"
+  },
+  {
+    name: "JavaScript",
+    icon: "fa-js",
+    classes: "bg-yellow-500/10 border-yellow-500/30 text-yellow-400 hover:shadow-[0_4px_20px_rgba(234,179,8,0.15)]"
+  },
+  {
+    name: "TypeScript",
+    icon: "fa-js",
+    classes: "bg-blue-500/10 border-blue-500/30 text-blue-300 hover:shadow-[0_4px_20px_rgba(59,130,246,0.15)]"
+  },
+  {
+    name: "PHP",
+    icon: "fa-php",
+    classes: "bg-indigo-500/10 border-indigo-500/30 text-indigo-300 hover:shadow-[0_4px_20px_rgba(99,102,241,0.15)]"
+  },
+  {
+    name: "Node.js",
+    icon: "fa-node",
+    classes: "bg-green-500/10 border-green-500/30 text-green-400 hover:shadow-[0_4px_20px_rgba(34,197,94,0.15)]"
+  },
+  {
+    name: "SQL",
+    icon: "fa-database",
+    classes: "bg-cyan-500/10 border-cyan-500/30 text-cyan-400 hover:shadow-[0_4px_20px_rgba(6,182,212,0.15)]"
+  }
+];
+---
+
+
 <section class="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
 
-  <!-- blobs -->
-  <div class="absolute top-1/4 -left-20 w-72 h-72 bg-violet-600/20 rounded-full blur-[120px]"></div>
-  <div class="absolute bottom-1/4 -right-20 w-72 h-72 bg-cyan-600/20 rounded-full blur-[120px]"></div>
+  <!-- Fondo base -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(124,58,237,0.12),transparent_60%)]"></div>
 
-  <!-- badge -->
-  <span class="px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest uppercase text-violet-400 border border-violet-400/30 rounded-full bg-violet-400/5">
-    Disponible para proyectos
-  </span>
-
-  <!-- título -->
-  <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
-    Hola, soy 
-    <span class="bg-linear-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-green-400/40">
-      Iverson
-    </span>
-  </h1>
-
-  <!-- descripción corta -->
-  <p class="text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed mb-10">
-    <span class="text-slate-100 font-semibold">Full Stack Developer</span> especializado en Angular y backend usando php.
-  </p>
-
-  <!-- botones -->
-  <div class="flex gap-4">
-    <a href="#projects" class="px-8 py-3 bg-violet-600 hover:bg-violet-700 transition-all rounded-full font-bold shadow-lg shadow-violet-500/20">
-      Ver proyectos
-    </a>
-    <a href="#contact" class="px-8 py-3 bg-slate-800 hover:bg-slate-700 transition-all rounded-full font-bold border border-slate-700">
-      Contacto
-    </a>
+  <!-- Grid -->
+  <div class="absolute inset-0 
+    [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)]
+    [background-size:50px_50px]
+    [mask-image:radial-gradient(ellipse_70%_70%_at_50%_50%,black_30%,transparent_100%)]">
   </div>
 
-  <!-- stack visual -->
-  <div class="mt-12 flex gap-6 text-2xl text-slate-400">
-    <i class="fa-brands fa-angular hover:text-red-500 transition"></i>
-    <i class="fa-brands fa-js hover:text-yellow-400 transition"></i>
-    <!--<i class="fa-brands fa-typescript hover:text-yellow-400 transition"></i> -->
-    <i class="fa-brands fa-node hover:text-green-500 transition"></i>
-    <i class="fa-brands fa-php hover:text-green-500 transition"></i>
-    <i class="fa-solid fa-database hover:text-blue-400 transition"></i>
+  <!-- Blobs dinámicos -->
+  <div class="absolute -top-24 -left-36 w-[500px] h-[500px] rounded-full bg-violet-600/20 blur-[120px] animate-pulse"></div>
+  <div class="absolute -bottom-24 -right-32 w-[450px] h-[450px] rounded-full bg-cyan-500/20 blur-[120px] animate-pulse [animation-delay:2s]"></div>
+
+  <!-- Marca gigante -->
+  <span class="absolute text-[28vw] font-extrabold text-white/[0.02] select-none tracking-tight">
+    FS
+  </span>
+
+  <!-- Badge -->
+  <div class="flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full
+    border border-white/10 bg-white/5 backdrop-blur-md
+    animate-fade-down">
+
+    <span class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-ping"></span>
+
+    <span class="text-[11px] tracking-[0.2em] uppercase text-slate-300">
+      Disponible para proyectos
+    </span>
+  </div>
+
+  <!-- Greeting -->
+  <p class="text-lg text-slate-400 mb-2 animate-fade-down">
+    Hola, soy
+  </p>
+
+  <!-- Nombre -->
+  <h1 class="relative mb-6 animate-fade-up">
+
+    <span class="block text-[clamp(3.5rem,10vw,6rem)] font-extrabold
+      bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400
+      bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(124,58,237,0.3)]">
+      Iverson
+    </span>
+
+    <!-- Glow -->
+    <span class="absolute inset-0 blur-3xl opacity-30
+      bg-gradient-to-r from-violet-500 via-cyan-400 to-emerald-400">
+    </span>
+
+  </h1>
+
+  <!-- Rol -->
+  <div class="flex items-center gap-4 mb-6 animate-fade-up">
+    <span class="h-px w-12 bg-white/10"></span>
+    <span class="text-slate-300 font-medium tracking-wide">
+      Full Stack Developer
+    </span>
+    <span class="h-px w-12 bg-white/10"></span>
+  </div>
+
+  <!-- Descripción -->
+  <p class="max-w-lg text-slate-400 leading-relaxed mb-10 text-sm md:text-base animate-fade-up">
+    Especializado en <strong class="text-white">Angular</strong> y backend con
+    <strong class="text-white">PHP</strong>.
+    Construyo interfaces modernas y APIs escalables enfocadas en rendimiento.
+  </p>
+
+  <!-- Botones -->
+  <div class="flex gap-4 flex-wrap justify-center mb-12 animate-fade-up">
+
+    <a href="#projects"
+      class="px-7 py-3 rounded-full text-sm font-semibold text-white
+      bg-gradient-to-r from-violet-600 to-cyan-500
+      shadow-lg hover:shadow-violet-500/40
+      hover:-translate-y-1 transition-all duration-300">
+      Ver proyectos →
+    </a>
+
+    <a href="#contact"
+      class="px-7 py-3 rounded-full text-sm text-slate-300
+      border border-white/10 bg-white/5 backdrop-blur-md
+      hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
+      Contacto
+    </a>
+
+  </div>
+
+
+
+<!-- Stack pills -->
+<div class="flex flex-wrap gap-2.5 justify-center animate-fade-up [animation-delay:650ms]">
+
+  {stack.map((tech) => (
+    <span class={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium border
+      transition-all duration-200 cursor-default hover:-translate-y-0.5 ${tech.classes}`}>
+
+      <i class={`fa-brands ${tech.icon} text-[13px]`}></i>
+
+      {tech.name}
+    </span>
+  ))}
+
+</div>
+
+  <!-- Scroll -->
+  <div class="absolute bottom-8 animate-bounce">
+    <div class="w-5 h-5 border-r border-b border-white/20 rotate-45"></div>
   </div>
 
 </section>
