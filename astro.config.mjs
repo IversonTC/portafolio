@@ -9,7 +9,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   integrations: [react()],
   site: "https://iversontc.github.io",
-  base: "/portafolio",
+  base: "/portafolio/",
   vite: {
     plugins: [tailwindcss()],
   },
