@@ -1,13 +1,92 @@
-<nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-[#080b14]/80 border-b border-slate-800/60">
+
+
+<nav id="navbar" class="fixed top-0 w-full z-50 backdrop-blur-md bg-[#080b14]/80 border-b border-slate-800/60 transition-all duration-300">
+
   <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-    <span class="font-bold text-lg tracking-wide font-['Syne'] bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+
+    <!-- Logo -->
+    <span class="font-bold text-lg tracking-wide font-['Syne']
+      bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
       Iverson
     </span>
-    <div class="flex gap-8 text-sm text-slate-400">
-      <a href="#projects"    class="hover:text-white transition-colors duration-200">Proyectos</a>
-      <a href="#experience"  class="hover:text-white transition-colors duration-200">Experiencia</a>
-      <a href="#about"       class="hover:text-white transition-colors duration-200">Sobre mí</a>
-      <a href="#contact"     class="hover:text-white transition-colors duration-200">Contacto</a>
+
+    <!-- Desktop menu -->
+    <div class="hidden md:flex gap-8 text-sm text-slate-400">
+      <a href="#projects"   class="hover:text-white transition">Proyectos</a>
+      <a href="#experience" class="hover:text-white transition">Experiencia</a>
+      <a href="#about"      class="hover:text-white transition">Sobre mí</a>
+      <a href="#contact"    class="hover:text-white transition">Contacto</a>
+    </div>
+
+    <!-- Mobile button -->
+    <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 group" aria-label="Menu">
+
+      <span class="block h-[2px] w-6 bg-white transition-all duration-300 group-[.open]:rotate-45 group-[.open]:translate-y-[6px]"></span>
+      <span class="block h-[2px] w-6 bg-white transition-all duration-300 group-[.open]:opacity-0"></span>
+      <span class="block h-[2px] w-6 bg-white transition-all duration-300 group-[.open]:-rotate-45 group-[.open]:-translate-y-[6px]"></span>
+
+    </button>
+
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu"
+    class="md:hidden max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-out">
+
+    <div class="px-6 pb-6 flex flex-col gap-4 text-slate-300 text-sm
+      bg-[#080b14]/95 backdrop-blur-xl border-t border-slate-800/60">
+
+      <a href="#projects"   class="hover:text-white transition">Proyectos</a>
+      <a href="#experience" class="hover:text-white transition">Experiencia</a>
+      <a href="#about"      class="hover:text-white transition">Sobre mí</a>
+      <a href="#contact"    class="hover:text-white transition">Contacto</a>
+
     </div>
   </div>
+
 </nav>
+
+<!-- Script -->
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const navbar = document.getElementById("navbar");
+
+  // Validación segura
+  if (btn && menu) {
+
+    btn.addEventListener("click", () => {
+      const isOpen = menu.classList.contains("max-h-60");
+
+      if (isOpen) {
+        menu.classList.remove("max-h-60", "opacity-100");
+        menu.classList.add("max-h-0", "opacity-0");
+        btn.classList.remove("open");
+      } else {
+        menu.classList.remove("max-h-0", "opacity-0");
+        menu.classList.add("max-h-60", "opacity-100");
+        btn.classList.add("open");
+      }
+    });
+
+    // Cerrar al hacer click en links
+    document.querySelectorAll("#mobile-menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        menu.classList.remove("max-h-60", "opacity-100");
+        menu.classList.add("max-h-0", "opacity-0");
+        btn.classList.remove("open");
+      });
+    });
+  }
+
+  // Scroll effect (también seguro)
+  if (navbar) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add("bg-[#080b14]/95", "backdrop-blur-xl");
+      } else {
+        navbar.classList.remove("bg-[#080b14]/95", "backdrop-blur-xl");
+      }
+    });
+  }
+</script>
