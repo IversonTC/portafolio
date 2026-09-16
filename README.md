@@ -11,7 +11,7 @@ Mi portafolio personal donde muestro mis habilidades, proyectos y experiencia co
 
 ## 🌐 Live Demo
 
-🔗 [portafolio-one-bay.vercel.app](https://portafolio-one-bay.vercel.app)
+>🔗 [portafolio-one-bay.vercel.app](https://portafolio-one-bay.vercel.app)
 
 > ⚠️ **Nota:** Actualmente el deploy está caído (error 404). Pendiente de redeploy.
 
